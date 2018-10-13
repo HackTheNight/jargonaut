@@ -1,4 +1,9 @@
 # Jargonaut
+
+## Local Development
+
+Copy `.env.example` to `.env` and use the correct API key. (Contact the project administrators if you do not have an API Key).
+
 [![Build Status](https://travis-ci.org/HackTheNight/jargonaut.svg?branch=master)](https://travis-ci.org/HackTheNight/jargonaut)
 [![codecov](https://codecov.io/gh/HackTheNight/jargonaut/branch/master/graph/badge.svg)](https://codecov.io/gh/HackTheNight/jargonaut)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/)](https://www.codacy.com/app/HackTheNight/jargonaut)
