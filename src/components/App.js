@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import '../css/app.css';
 import base from '../base';
+import { Button } from 'semantic-ui-react'
 
 class App extends React.Component {
   state = {
@@ -46,7 +47,7 @@ class App extends React.Component {
         <p className="app-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button onClick={this.createTip}>Create & Save</button>
+        <Button onClick={this.createTip}>Create & Save</Button>
       </div>
     );
   }
