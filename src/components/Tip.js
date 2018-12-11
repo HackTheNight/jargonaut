@@ -1,6 +1,7 @@
 import React from 'react';
 import base from "../base";
 import * as firebase from 'firebase';
+import {Container, Tab, Header, Breadcrumb, Segment} from 'semantic-ui-react';
 import {map} from 'lodash';
 
 
@@ -29,45 +30,24 @@ class Tip extends React.Component {
   }
 
   render() {
-    const tip = this.state.tip;
+    const panes = [
+      { menuItem: 'Pros', render: () => <Tab.Pane>{this.state.tip.pros}</Tab.Pane> },
+      { menuItem: 'Cons', render: () => <Tab.Pane>{this.state.tip.cons}</Tab.Pane> },
+    ];
     return (
       <div className='tip'>
-        <div className='tip-header'>
-          <h1 className='tip-title'>{this.state.tip.title}</h1>
-          <ul className='tip-breadcrumb'>
-            {tip.tags}
-          </ul>
-        </div>
-
-        <div className='tip-content'>
+        <Container text style={{ marginTop: '7em' }}>
+          <Header className='tip-title' as='h1'>{this.state.tip.title}</Header>
+          <Breadcrumb>
+            <Breadcrumb.Section link>Home</Breadcrumb.Section>
+            <Breadcrumb.Divider icon='right angle'/>
+          </Breadcrumb>
           <p className='tip-desc'>{this.state.tip.desc}</p>
-          <div className='tip-ref'>
-            <h4 className='tip-ref-title'>References and Further Reading</h4>
-            <ul><li>{tip.references}</li></ul>
-          </div>
-          <div className='tip-code'>
-            <ol>
-              {tip.code}
-            </ol>
-          </div>
-          <div className='tip-tab'>
-            <h4>Pros</h4>
-            <ul><li>{tip.pros}</li></ul>
-            <h4>Cons</h4>
-            <ul><li>{tip.cons}</li></ul>
-          </div>
-        </div>
+          <Header className='tip-title' as='h3'>References and Further Reading</Header>
+          <Segment>{this.state.tip.code}</Segment>
 
-        <div className='tip-footer'>
-          <div className='tip-links'>other links</div>
-          <div className='tip-feedback'>
-            <h4>was this helpful?</h4>
-            <ul>
-              <li>Upvotes: {tip.upvotes}</li>
-              <li>Downvotes: {tip.downvotes}</li>
-            </ul>
-          </div>
-        </div>
+          <Tab panes={panes}/>
+        </Container>
       </div>
     );
   }
